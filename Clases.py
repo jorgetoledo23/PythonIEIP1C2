@@ -1,16 +1,14 @@
 class Auto:
     #Atributos => Caracteristicas
-    color = "" 
-    tipoCombustible = "" #Diesel / Gasolina / Electrico
-    marca = ""
-    numeroChasis = ""
-    estado = False #Boolean
-    año = 0
-
     #Constructor // Se ejecuta por defecto al instanciar esta clase
-    def __init__(self, pat, nchas):
+    def __init__(self, pat, nchas, col, tComb, mar, est, year):
         self.__patente = pat
-        self.numeroChasis = nchas
+        self.__numeroChasis = nchas
+        self.__color = col,
+        self.__año = year
+        self.__estado = est,
+        self.__marca = mar,
+        self.__tipoCombustible = tComb
 
     #Metodos
     def encender(self):
@@ -21,6 +19,7 @@ class Auto:
 
     def getPatente(self):
         return self.__patente
+    
     
 
 
