@@ -1,39 +1,23 @@
-class Auto:
-    #Atributos => Caracteristicas
-    color = "" 
-    tipoCombustible = "" #Diesel / Gasolina / Electrico
-    marca = ""
-    patente = ""
-    numeroChasis = ""
-    estado = False #Boolean
-    año = 0
+from Clases import Auto, Reparacion, Mecanico
 
-    #Metodos
-    def Encender(self):
-        self.estado = True
+autoFordFiesta = Auto("FSXG54", "67236732463742FGASFGFG")
+print(autoFordFiesta.getPatente()) # => FSXG54
 
-    def GetEstado(self):
-        return self.estado
+mecanicoJuan = Mecanico("17.534.281-K", "Juan Enrique","Fernandez Toledo", "Merced 503, Curico", "mecanicoJuan@gmail.com")
+print(mecanicoJuan.getInfoMecanico())
+#17.534.281-K Juan Enrique Fernandez Toledo Merced 503, Curico mecanicoJuan@gmail.com
 
-class Reparacion:
-    codigoReparacion = ""
-    reparacionesRealizadas = []
-    repuestosUtilizados = []
-    rutCliente = ""
-    rutMecanico = ""
-    VehiculoReparado = ""
-    Valor = 0
+mecanicoJuan.uptDireccion("Yungai 375, Curico")
+print(mecanicoJuan.getInfoMecanico())
 
-class Animal:
-    #Atributos => Caracteristicas
-    DNI = ""
-    nombreComun = ""
-    nombreCientifico = ""
+#17.534.281-K Juan Enrique Fernandez Toledo Merced 503, Curico mecanicoJuan@gmail.com
+#17.534.281-K Juan Enrique Fernandez Toledo Yungai 375, Curico mecanicoJuan@gmail.com
 
-class Vendedor:
-    #Atributos => Caracteristicas
-    DNI = ""
-    nombre = ""
-    apellidos = ""
-    direccion = ""
-    correoElectronico = ""
+
+
+
+reparacionFordFiesta = Reparacion("17.172.234-0", "18.290.343-K")
+reparacionFordFiesta.autoReparado = autoFordFiesta
+reparacionFordFiesta.autoReparado.patente = "ZZZG45"
+
+#print(reparacionFordFiesta.autoReparado)
