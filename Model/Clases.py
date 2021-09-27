@@ -26,7 +26,16 @@ class Mecanico:
         return f"Mecanico Rut: {self.__Rut}, Nombre: {self.__Nombres}, Apellido: {self.__Apellidos}, Correo: {self.__Correo}"
 
 class Reparacion:
-    pass
+    
+    def __init__(self, auto, mec, valor, repuesto):
+        self.__Auto = auto
+        self.__Mecanico = mec
+        self.__Valor = valor
+        self.__Repuesto = repuesto
+
+    def getInfo(self):
+        return f"Reparacion: Auto: {self.__Auto.getInfo()}, Mecanico: {self.__Mecanico.getInfo()}, Valor: {self.__Valor}, Repuesto: {self.__Repuesto}"
+
 
 class Menu:
 
@@ -41,6 +50,10 @@ class Menu:
         print("Presione 4 para Ver Autos Ingresados: ")
         print("Presione 5 para Ver Mecanicos Ingresados: ")
         print("Presione 6 para Ver Reparaciones Ingresados: ")
+
+        print("Presione 7 para Editar un Auto Ingresado: ")
+        print("Presione 8 para Eliminar un Auto Ingresado: ")
+
 
         print("Presione 0 y Enter para Salir!")
 
