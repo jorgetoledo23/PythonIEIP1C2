@@ -10,7 +10,11 @@ class Auto:
     def getInfo(self):
         return f"AUTO PATENTE {self.__patente},NCHASIS: {self.__nChasis}, MARCA: {self.__marca}, MODELO: {self.__modelo}, COLOR: {self.__color}, AÑO: {self.__year}"
 
-class Cliente:
+
+
+
+
+class Persona:
     def __init__(self, rut, nombres, apellidos, correo, telefono, direccion, comuna):
         self.__rut = rut
         self.__nombres = nombres
@@ -42,6 +46,13 @@ class Cliente:
     def getComuna(self):
         return self.__comuna
 
+
+class Cliente(Persona):
+    pass
+
+class Mecanico(Persona):
+    pass
+
 import os
 class MenuPrincipal:
 
@@ -52,19 +63,22 @@ class MenuPrincipal:
         print("")
 
         print("Presione 1 para gestionar Clientes")
+        print("Presione 2 para gestionar Mecanicos")
         
 
         print("Presione 0 para Salir")
 
-    def MenuClientes(self):
-        print("===============      GESTION CLIENTES      ===============")
+    def MenuGestion(self, texto):
+        print(f"===============      GESTION {texto.upper()}      ===============")
         print("===============   Seleccione una Opcion    ===============")
         print("")
 
-        print("Presione 1 para Agregar Cliente")
-        print("Presione 2 para Listar Clientes")
-        print("Presione 3 para Editar Cliente")
-        print("Presione 4 para Archivar Cliente")
+        print(f"Presione 1 para Agregar {texto} ")
+        print(f"Presione 2 para Listar {texto} ")
+        print(f"Presione 3 para Editar {texto} ")
+        print(f"Presione 4 para Archivar {texto} ")
+        print("Presione 5 para Volver al Menu Principal")
+
 
 
 

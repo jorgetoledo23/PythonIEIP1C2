@@ -1,13 +1,13 @@
 import mysql.connector
 from Model.Clases import *
 from mysql.connector import errorcode
+
 class DAO:
     def __init__(self):
         try:
             self.cnx = mysql.connector.connect(user='root', password='',
                 host='127.0.0.1',
-                database='test2')
-
+                database='d_iei_p1_c2')
             print('Conexion MySql Establecida Correctamente!')
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -29,3 +29,38 @@ class DAO:
         cursor = self.cnx.cursor()
         cursor.execute(add_cliente, data_cliente)
         self.cnx.commit()
+
+
+    def InsertarMecanico(self, M):
+        
+        add_mecanico = ("INSERT INTO tbl_mecanicos"
+                    "(rut, nombres, apellidos, correo, telefono, direccion, comuna)"
+                    "VALUES"
+                    "(%s, %s, %s, %s, %s, %s, %s)")
+        data_mecanico = (M.getRut(),M.getNombres(),M.getApellidos(),M.getCorreo(),M.getTelefono(),M.getDireccion(),M.getComuna())   
+        
+        cursor = self.cnx.cursor()
+        cursor.execute(add_mecanico, data_mecanico)
+        self.cnx.commit()
+
+    def LeerClientes(self):
+
+        cursor = self.cnx.cursor()
+
+        cursor.execute("SELECT * FROM tbl_clientes")
+        listaClientes = []
+        for (rut, nombres, apellidos, correo, telefono, direccion, comuna) in cursor:
+            C = Cliente(rut, nombres, apellidos, correo, telefono, direccion, comuna)
+            listaClientes.append(C)
+        return listaClientes
+
+    def LeerMecanicos(self):
+
+        cursor = self.cnx.cursor()
+
+        cursor.execute("SELECT * FROM tbl_mecanicos")
+        listaMecanicos = []
+        for (rut, nombres, apellidos, correo, telefono, direccion, comuna) in cursor:
+            M = Mecanico(rut, nombres, apellidos, correo, telefono, direccion, comuna)
+            listaMecanicos.append(M)
+        return listaMecanicos
