@@ -49,8 +49,8 @@ class Persona:
         return f"Rut: {self.__rut} Nombres: {self.__nombres} Apellidos: {self.__apellidos}"
 
     def getInfoDetallada(self):
-        return (f"Rut: {self.__rut} Nombres: {self.__nombres} Apellidos: {self.__apellidos}"
-               f"Correo: {self.__correo} Telefono: {self.__telefono} Direccion: {self.__direccion}"
+        return (f"Rut: {self.__rut}, Nombres: {self.__nombres}, Apellidos: {self.__apellidos},"
+               f"Correo: {self.__correo}, Telefono: {self.__telefono}, Direccion: {self.__direccion}, "
                f"Comuna: {self.__comuna}")
     def getRut(self):
         return self.__rut  

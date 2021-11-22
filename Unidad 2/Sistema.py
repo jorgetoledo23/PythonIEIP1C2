@@ -45,6 +45,37 @@ while True:
             print("")
             input('Presione Enter para Continuar...')    
 
+        if oP == "3":
+            #Editar/Actulizar algun cliente
+            mP.LimpiarConsola()
+            print("======= Editando Clientes =======")
+            print("=================================")
+            print("======= Seleccione el Cliente que desea Actualizar =======")
+            print("")
+
+            for C in dao.ListarClientes():
+                print(C.getInfoDetallada())
+
+            RutAntiguo = input("Digite Rut del Cliente: ")
+
+            mP.LimpiarConsola()
+            print(f"======= Editando Cliente: {RutAntiguo} =======")
+            print("============== Complete la Informacion ===================")
+            print("")
+
+            Rut = str(input("Rut: "))
+            Nombres = str(input("Nombres: "))
+            Apellidos = str(input("Apellidos: "))
+            Telefono = str(input("Telefono: "))
+            Correo = str(input("Correo: "))
+            Direccion = str(input("Direccion: "))
+            Comuna = str(input("Comuna: "))
+            C = Cliente(Rut,Nombres,Apellidos,Correo,Telefono,Direccion,Comuna)
+
+            dao.ActualizarCliente(C, RutAntiguo)
+            mP.ConfirmacionEdit('Cliente')
+
+
     if oP=="2":
         mP.LimpiarConsola()
         mP.MenuGestion("Mecanico")
@@ -81,6 +112,36 @@ while True:
 
             print("")
             input('Presione Enter para Continuar...')
+
+        if oP == "3":
+            #Editar/Actulizar algun Mecanico
+            mP.LimpiarConsola()
+            print("======= Editando Mecanicos =======")
+            print("=================================")
+            print("======= Seleccione el Mecanico que desea Actualizar =======")
+            print("")
+
+            for M in dao.ListarMecanicos():
+                print(M.getInfoDetallada())
+
+            RutAntiguo = input("Digite Rut del Mecanico: ")
+
+            mP.LimpiarConsola()
+            print(f"======= Editando Mecanico: {RutAntiguo} =======")
+            print("============== Complete la Informacion ===================")
+            print("")
+
+            Rut = str(input("Rut: "))
+            Nombres = str(input("Nombres: "))
+            Apellidos = str(input("Apellidos: "))
+            Telefono = str(input("Telefono: "))
+            Correo = str(input("Correo: "))
+            Direccion = str(input("Direccion: "))
+            Comuna = str(input("Comuna: "))
+            M = Mecanico(Rut,Nombres,Apellidos,Correo,Telefono,Direccion,Comuna)
+
+            dao.ActualizarMecanico(M, RutAntiguo)
+            mP.ConfirmacionEdit('Mecanico')
 
         if oP == "5":
             pass

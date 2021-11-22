@@ -30,7 +30,18 @@ class DAO:
         cursor.execute(add_cliente, data_cliente)
         self.cnx.commit()
 
+    def ActualizarCliente(self, C, Rut):
+        
+        add_cliente = ("UPDATE tbl_clientes SET rut = %s, nombres = %s, apellidos = %s, correo = %s, "
+                    "telefono = %s, direccion = %s, comuna = %s "
+                    "WHERE rut = %s")
+        data_cliente = (C.getRut(),C.getNombres(),C.getApellidos(),C.getCorreo(),C.getTelefono(),C.getDireccion(),C.getComuna(), Rut)   
+        
+        cursor = self.cnx.cursor()
+        cursor.execute(add_cliente, data_cliente)
+        self.cnx.commit()
 
+    
     def InsertarMecanico(self, M):
         
         add_mecanico = ("INSERT INTO tbl_mecanicos"
@@ -42,6 +53,19 @@ class DAO:
         cursor = self.cnx.cursor()
         cursor.execute(add_mecanico, data_mecanico)
         self.cnx.commit()
+
+
+    def ActualizarMecanico(self, M, Rut):
+        
+        add_mecanico = ("UPDATE tbl_mecanicos SET rut = %s, nombres = %s, apellidos = %s, correo = %s, "
+                    "telefono = %s, direccion = %s, comuna = %s "
+                    "WHERE rut = %s")
+        data_mecanico = (M.getRut(),M.getNombres(),M.getApellidos(),M.getCorreo(),M.getTelefono(),M.getDireccion(),M.getComuna(), Rut)   
+        
+        cursor = self.cnx.cursor()
+        cursor.execute(add_mecanico, data_mecanico)
+        self.cnx.commit()
+    
 
     def InsertarVehiculo(self, V):
         add_vehiculo = ("insert into tbl_autos"
@@ -65,6 +89,7 @@ class DAO:
             C = Cliente(rut, nombres, apellidos, correo, telefono, direccion, comuna)
             listaClientes.append(C)
         return listaClientes
+
 
     def ListarMecanicos(self):
 
