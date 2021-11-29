@@ -43,6 +43,7 @@ while True:
                 print(C.getInfoDetallada())
 
             print("")
+            oP = None
             input('Presione Enter para Continuar...')    
 
         if oP == "3":
@@ -74,6 +75,28 @@ while True:
 
             dao.ActualizarCliente(C, RutAntiguo)
             mP.ConfirmacionEdit('Cliente')
+
+
+        if oP == "4":
+            #Eliminar un cliente en especifico
+            mP.LimpiarConsola()
+            print("======= Eliminando Cliente =======")
+            print("=================================")
+            print("======= Seleccione el Cliente que desea Eliminar =======")
+            print("Tener cuidado ya que no se puede recuperar la informacion")
+            print("")
+
+            for C in dao.ListarClientes():
+                print(C.getInfoDetallada())
+
+            Rut = input("Digite Rut del Cliente: ")
+
+            confirmacion = input(f"Estas seguro de que quieres eliminar el cliente: {Rut} ? (Y/N)")
+            if confirmacion == "Y":
+                dao.EliminarCliente(Rut)
+                mP.ConfirmacionDelete('Cliente')
+            if confirmacion == "N":
+                pass
 
 
     if oP=="2":
